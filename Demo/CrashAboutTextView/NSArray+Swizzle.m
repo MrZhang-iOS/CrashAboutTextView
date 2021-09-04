@@ -14,32 +14,6 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        //不可变数组的方法交换
-        Class instanceClass = objc_getClass("__NSArrayI");
-        
-        SEL originalInstanceSelector = @selector(objectAtIndex:);
-        SEL swizzledInstanceSelector = @selector(zw_objectAtIndex:);
-        
-        Method originalInstanceMethod = class_getInstanceMethod(instanceClass, originalInstanceSelector);
-        Method swizzledInstanceMethod = class_getInstanceMethod(instanceClass, swizzledInstanceSelector);
-        
-        if (originalInstanceMethod && swizzledInstanceMethod)
-        {
-            BOOL isMethodAdd = class_addMethod(instanceClass, originalInstanceSelector, method_getImplementation(swizzledInstanceMethod), method_getTypeEncoding(swizzledInstanceMethod));
-            if (isMethodAdd)
-            {
-                class_replaceMethod(instanceClass, swizzledInstanceSelector, method_getImplementation(originalInstanceMethod), method_getTypeEncoding(originalInstanceMethod));
-            }
-            else
-            {
-                method_exchangeImplementations(originalInstanceMethod, swizzledInstanceMethod);
-            }
-        }
-        else
-        {
-            NSLog(@"__NSArrayI的objectAtIndex交换方法失败");
-        }
-        
         //可变数组的方法交换
         Class instanceClassM = objc_getClass("__NSArrayM");
         
@@ -66,20 +40,6 @@
             NSLog(@"__NSArrayM的objectAtIndex交换方法失败");
         }
     });
-}
-
-- (id)zw_objectAtIndex:(NSUInteger)index {
-    id obj = nil;
-    if (index >= 0 && index < self.count) {
-        obj = [self zw_objectAtIndex:index];
-        if (obj && [obj isKindOfClass:[NSNull class]])
-        {
-            obj = nil;
-        }
-    } else {
-        NSLog(@"exception: array out of bounds");
-    }
-    return obj;
 }
 
 - (id)zw_mutableObjectAtIndex:(NSUInteger)index {
