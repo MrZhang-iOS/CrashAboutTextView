@@ -47,7 +47,7 @@ _CTFontCreateForCharactersWithLanguageAndOption + 100
 ````
 
 ### 虽然Crash的代码发生在UITextView的setText:接口处，造成Crash的原因其实是在NSArray+Swizzle模块对系统可变数组__NSArrayM的【- objectAtIndex:】接口进行方法hook时，获取索引值后进行了NSNull判断。
-> 注释掉NSArray+Swizzle.m文件第107~110行代码即不再Crash。
+> 注释掉NSArray+Swizzle.m文件第49~52行代码即不再Crash。
 > 如下：
 
 ````
