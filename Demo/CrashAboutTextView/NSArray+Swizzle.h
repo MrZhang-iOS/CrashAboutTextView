@@ -14,3 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+/**
+ * 请勿将此模块直接拿去使用，因为NSArray是类族，实际类名在运行时有所变化。
+ */
