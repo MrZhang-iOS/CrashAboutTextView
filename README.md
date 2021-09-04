@@ -80,7 +80,7 @@ _CTFontCreateForCharactersWithLanguageAndOption + 100
 
 2.打开工程文件直接编译，模拟器上运行也可以；
 
-3.点击底部按钮既可以发生Crash效果
+3.App启动后点击主页底部按钮可以发生Crash效果
 
 ![Simulator Screen Shot - iPod touch (7th generation) - 2021-09-04 at 11 51 06](https://user-images.githubusercontent.com/8546073/132081755-65e05bf3-f8f6-4dab-ae43-39950444910f.png)
 
