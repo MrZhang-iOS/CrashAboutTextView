@@ -6,6 +6,8 @@
 
 UITextView控件就是用来显示文字，无论文字内容长短或者何种字体，都不应该造成崩溃。
 
+![截屏2021-09-04 11 51 45](https://user-images.githubusercontent.com/8546073/132081640-c4eff803-571c-4a0d-9b8c-8a83bf3cb3e9.png)
+
 ### 捕捉的异常信息如下：
 
 ````
@@ -65,5 +67,21 @@ _CTFontCreateForCharactersWithLanguageAndOption + 100
 ````
 
 > 分析原因是系统Foundation和CoreText在setText:时最终有调用__NSArrayM的【- objectAtIndex:】接口，且数据存在对NSNull对象的操作，具体原因还请技术大牛科普源码。
+
+
+
+
+
+
+
+
+## Demo操作方式很简单
+1.下载源码（没有任何关联库，无需执行pod install）；
+
+2.打开工程文件直接编译，模拟器上运行也可以；
+
+3.点击底部按钮既可以发生Crash效果
+
+![Simulator Screen Shot - iPod touch (7th generation) - 2021-09-04 at 11 51 06](https://user-images.githubusercontent.com/8546073/132081755-65e05bf3-f8f6-4dab-ae43-39950444910f.png)
 
 
