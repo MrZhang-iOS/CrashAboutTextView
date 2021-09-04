@@ -1,5 +1,5 @@
 # CrashAboutTextView
-你永远也想不到UITextView的崩溃居然跟NSMutableArray有关系！
+你永远也想不到UITextView的崩溃居然跟NSMutableArray有关系！如果项目比较大代码较复杂，即时根据异常日志也可能很难找到问题根源。
 
 # **Demo说明**
 	你永远也想不到UITextView的崩溃和NSMutableArray有关系！
